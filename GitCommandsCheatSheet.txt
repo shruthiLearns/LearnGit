@@ -1,0 +1,113 @@
+Typical Git Workflow (Step-by-Step)
+This is how you generally work on a project using Git:
+
+📌 Step 1: Clone the Repository (if it already exists)
+bash
+Copy
+Edit
+git clone https://github.com/user/project.git
+cd project
+📌 Step 2: Create a New Branch
+Always work on a feature branch, not on main.
+
+bash
+Copy
+Edit
+git checkout -b feature/my-new-feature
+# OR (modern)
+git switch -c feature/my-new-feature
+📌 Step 3: Make Code Changes
+Edit your files using an editor like VSCode.
+
+📌 Step 4: Check Status
+bash
+Copy
+Edit
+git status
+Shows what has changed and what is staged.
+
+📌 Step 5: Stage Files
+bash
+Copy
+Edit
+git add filename        # Add one file
+git add .               # Add all modified/untracked files
+📌 Step 6: Commit Changes
+bash
+Copy
+Edit
+git commit -m "Add login functionality"
+📌 Step 7: Pull the Latest Main (Optional but Important)
+Keeps your branch updated with the latest code from main.
+
+bash
+Copy
+Edit
+git switch main
+git pull origin main
+git switch feature/my-new-feature
+git merge main
+Or:
+
+bash
+Copy
+Edit
+git rebase main  # Cleaner history (advanced)
+📌 Step 8: Push Your Branch to Remote
+bash
+Copy
+Edit
+git push origin feature/my-new-feature
+📌 Step 9: Create a Pull Request (PR)
+Go to GitHub/GitLab/Bitbucket and create a PR to merge your branch into main.
+
+📌 Step 10: Review & Merge PR
+A teammate reviews your PR
+
+Once approved, it’s merged into the main branch
+
+📌 Step 11: Delete Your Branch (Optional)
+bash
+Copy
+Edit
+git branch -d feature/my-new-feature     # Delete locally
+git push origin --delete feature/my-new-feature  # Delete remotely
+🔁 Workflow Summary (Commands Only)
+bash
+Copy
+Edit
+# Clone
+git clone <repo-url>
+cd project
+
+# Create branch
+git switch -c feature/my-feature
+
+# Work on code...
+
+# Stage and commit
+git add .
+git commit -m "Describe your changes"
+
+# Update with main (optional)
+git switch main
+git pull origin main
+git switch feature/my-feature
+git merge main
+
+# Push branch
+git push origin feature/my-feature
+
+# Go to GitHub and create a Pull Request
+
+# After merge:
+git branch -d feature/my-feature
+git push origin --delete feature/my-feature
+🧠 Bonus Tips
+✅ Use descriptive branch names: feature/login-page, bugfix/api-error
+
+✅ Write clear commit messages: "Fix login button not responding"
+
+✅ Frequently pull and sync with main to avoid merge conflicts
+
+✅ Use .gitignore to avoid committing temporary or config files
